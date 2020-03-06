@@ -105,11 +105,10 @@ def basket(request):
             else:
                 pass
         elif request.POST["type"] == "order":
+            user = request.user
             adress = request.POST.get("adress")
             summ = request.POST.get("sum")
-
             basket_items = BasketsItem.objects.filter(user=request.user)
-
             print('----------------------------------------------------')
             print(f'Пользователь: {request.user}')
             print(f'Адрес: {adress}')
@@ -134,8 +133,3 @@ def basket(request):
 
     return render(request, 'shop/basket.html', context=ctx)
 
-# def order(request):
-#     if request.method == "POST":
-
-
-#     return render(request, 'shop/basket.html',)

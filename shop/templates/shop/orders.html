@@ -1,0 +1,52 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1 class="text-center headline">Заказы</h1>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 col-md-12">
+            <div class="basketProduct">
+                    <div class="col-xs-12 col-sm-8">
+                        {% for item in orders %}
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-2">
+                                    <div class="name" alt=""><span>{{ item.user }}</span></div>
+                                </div>
+                                <div class="col-xs-4 col-sm-2">
+                                    <img style="width: 100%;" class="img-rounded" src="{{ item.product.product.image.url }}" alt="">
+                                </div>
+                                <div class="col-xs-6 col-sm-3">
+                                    <div class="name"><span>{{ item.product.name }}</span></div>        
+                                </div>
+                                <div class="col-xs-6 col-sm-3">
+                                    <div class="weight"><span>{{ item.product.weight }}</span> гр.</div>
+                                </div>
+                                <div class="col-xs-6 col-sm-3">
+                                    <div class="cost"><span>{{ item.product.price }}</span> ₽</div>
+                                </div>
+                            </div>                         
+                        {% endfor %}
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4" >
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6">
+                                <div class="name">
+                                    x 2
+                                </div>        
+                            </div>
+
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>	
+    </div>
+    </div>
+
+
+</div>
+
+
+{% endblock content %}

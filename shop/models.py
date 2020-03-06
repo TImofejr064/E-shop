@@ -54,15 +54,6 @@ class Category(models.Model):
     def __str__(self):
         return f'{self.name}'    
 
-class Order(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    product = models.ManyToManyField("BasketsItem")
-    adress = models.TextField()
-    summ = models.IntegerField()
-
-    def __str__(self):
-        return f'{self.product.name}'
-
 class Status(models.Model):
     name = models.TextField()
 
