@@ -136,14 +136,6 @@ def basket(request):
             print("Login success")
             server.sendmail(sender_email, rec_email, html.encode('Windows 1251'))
             print("Email's been sent to ", rec_email)
-
-            # print('----------------------------------------------------')
-            # print(f'Пользователь: {request.user}')
-            # print(f'Адрес: {adress}')
-            # print(f'Общая цена: {summ}')
-            # for item in basket_items:
-            #     print(f'Товар: {item.product.name}, Кол-во: {item.num}, Цена: {item.product.price}')
-            # print('----------------------------------------------------')
             
 
     basket = Basket.objects.get(user=request.user)
