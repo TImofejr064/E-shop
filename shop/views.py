@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserRegisterForm
 from django.contrib import messages
+import smtplib
+
 
 
 
@@ -105,17 +107,43 @@ def basket(request):
             else:
                 pass
         elif request.POST["type"] == "order":
-            user = request.user
-            adress = request.POST.get("adress")
-            summ = request.POST.get("sum")
+            user = str(request.user.username)
+            adress = str(request.POST.get("adress"))
+            summ = str(request.POST.get("sum"))
             basket_items = BasketsItem.objects.filter(user=request.user)
-            print('----------------------------------------------------')
-            print(f'Пользователь: {request.user}')
-            print(f'Адрес: {adress}')
-            print(f'Общая цена: {summ}')
+            html = f"""
+                Пользователь: {user}
+                Адресс: {adress}
+                Общая цена: {summ}
+            """
             for item in basket_items:
-                print(f'Товар: {item.product.name}, Кол-во: {item.num}, Цена: {item.product.price}')
-            print('----------------------------------------------------')
+                itemProductName = str(item.product.name) 
+                itemNum = str(item.num) 
+                itemProducPrice = str(item.product.price)
+                html += f"""
+                Товар: {itemProductName}, Кол-во: {itemNum}, Цена: {itemProducPrice}Р
+                """
+            
+            print(html)
+
+            sender_email = "timofejr063@gmail.com"
+            rec_email = "timofejr064@gmail.com"
+            password = "678717Timik_"
+
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(sender_email, password)
+            print("Login success")
+            server.sendmail(sender_email, rec_email, html.encode('Windows 1251'))
+            print("Email's been sent to ", rec_email)
+
+            # print('----------------------------------------------------')
+            # print(f'Пользователь: {request.user}')
+            # print(f'Адрес: {adress}')
+            # print(f'Общая цена: {summ}')
+            # for item in basket_items:
+            #     print(f'Товар: {item.product.name}, Кол-во: {item.num}, Цена: {item.product.price}')
+            # print('----------------------------------------------------')
             
 
     basket = Basket.objects.get(user=request.user)
