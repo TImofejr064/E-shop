@@ -45,8 +45,10 @@ def get_products(request, category):
                     messages.success(request, 'Товар добавлен!')
         except:
             redirect('login-page')
+            messages.warning(request, 'Сначало войдите или зарегестрируйтесь!')
         else:
             redirect('login-page')
+            messages.warning(request, 'Сначало войдите или зарегестрируйтесь!')
         
     categories = Category.objects.all()
     products = Product.objects.filter(category__name=category)
