@@ -1,0 +1,158 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* Tags */
+
+/* Categories */
+
+.categories {
+    box-shadow: 0 0 40px rgb(0,0,0,0.5);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.categories a {
+    color: black;
+    font-size: 18px;
+}
+
+.categories h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.categories_list {
+    margin-top: 30px;
+}
+
+.categories_list a {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+
+/* Product */
+
+.headline {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+/* Product's styles */
+
+.product {
+    margin-bottom: 40px;
+}
+
+.product .name {
+    margin-top: 10px;
+}
+
+.product .name strong {
+    padding-left: 0px;
+}
+
+.product-photo img{
+    width: 100%;
+} 
+
+.product .price_weight .row {
+    margin-top: 10px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.product .price_weight .row .col-xs-6 h4 {
+    font-size: 18px;
+}   
+
+.product .price_weight .row .col-xs-6 h3 {
+    font-size: 25px;
+}   
+
+.product form .row {
+    margin-left: 0;
+    margin-right: 0;
+}   
+
+.products {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+/* Footer */
+footer {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+/*  */
+
+.text-right{
+    margin-left: auto;
+}
+
+/* Register */
+
+.register {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 40px rgb(0,0,0,0.5);
+}
+
+.reg_h {
+    margin-top: 40px;
+}
+
+/* basketProduct */
+
+.basketProduct {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.name, .weight, .cost, .btn-outline-danger {
+    margin-top: 10px;
+}
+
+
+.total_price {
+    margin-top: 20px;
+    width: 200px;
+    margin-bottom: 20px;
+}
+/* alert */
+
+.alert {
+    margin-bottom: 0;
+}
+
+/*  */
+@media (min-width: 992px)
+.col-md-4 {
+    width: 33.33333333%;
+}
+@media (min-width: 992px)
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+}
+@media (min-width: 768px)
+.col-sm-6 {
+    width: 50%;
+}
+@media (min-width: 768px)
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+}
+.col-xs-12 {
+    width: 100%;
+}
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+    float: left;
+}
