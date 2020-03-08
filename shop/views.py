@@ -108,36 +108,36 @@ def basket(request):
                 pass
             else:
                 pass
-        elif request.POST["type"] == "order":
-            user = str(request.user.username)
-            adress = str(request.POST.get("adress"))
-            summ = str(request.POST.get("sum"))
-            basket_items = BasketsItem.objects.filter(user=request.user)
-            html = f"""
-                Пользователь: {user}
-                Адресс: {adress}
-                Общая цена: {summ}
-            """
-            for item in basket_items:
-                itemProductName = str(item.product.name) 
-                itemNum = str(item.num) 
-                itemProducPrice = str(item.product.price)
-                html += f"""
-                Товар: {itemProductName}, Кол-во: {itemNum}, Цена: {itemProducPrice}Р
-                """
+        # elif request.POST["type"] == "order":
+        #     user = str(request.user.username)
+        #     adress = str(request.POST.get("adress"))
+        #     summ = str(request.POST.get("sum"))
+        #     basket_items = BasketsItem.objects.filter(user=request.user)
+        #     html = f"""
+        #         Пользователь: {user}
+        #         Адресс: {adress}
+        #         Общая цена: {summ}
+        #     """
+        #     for item in basket_items:
+        #         itemProductName = str(item.product.name) 
+        #         itemNum = str(item.num) 
+        #         itemProducPrice = str(item.product.price)
+        #         html += f"""
+        #         Товар: {itemProductName}, Кол-во: {itemNum}, Цена: {itemProducPrice}Р
+        #         """
             
-            print(html)
+        #     print(html)
 
-            sender_email = "timofejr063@gmail.com"
-            rec_email = "timofejr064@gmail.com"
-            password = "678717Timik_"
+        #     sender_email = "timofejr063@gmail.com"
+        #     rec_email = "timofejr064@gmail.com"
+        #     password = "678717Timik_"
 
-            server = smtplib.SMTP('localhost', 587)
-            server.starttls()
-            server.login(sender_email, password)
-            print("Login success")
-            server.sendmail(sender_email, rec_email, html.encode('Windows 1251'))
-            print("Email's been sent to ", rec_email)
+        #     server = smtplib.SMTP('localhost', 587)
+        #     server.starttls()
+        #     server.login(sender_email, password)
+        #     print("Login success")
+        #     server.sendmail(sender_email, rec_email, html.encode('Windows 1251'))
+        #     print("Email's been sent to ", rec_email)
             
 
     basket = Basket.objects.get(user=request.user)
