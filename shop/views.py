@@ -132,7 +132,7 @@ def basket(request):
             rec_email = "timofejr064@gmail.com"
             password = "678717Timik_"
 
-            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server = smtplib.SMTP('localhost', 587)
             server.starttls()
             server.login(sender_email, password)
             print("Login success")
