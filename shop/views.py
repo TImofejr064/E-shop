@@ -24,8 +24,9 @@ def main(request):
 
 def get_products(request, category):
     print(request.method)
-    if user.is_authenticated:
-        if request.method == "POST":
+        
+    if request.method == "POST":
+        if user.is_authenticated:
             print('request is post')
 
             num = request.POST.get("number")
@@ -41,9 +42,9 @@ def get_products(request, category):
                 bi.save()
                 print('New item in basket!')    
                 messages.success(request, 'Товар добавлен!')
-    else:
-        redirect("login-page")
-
+        else:
+            redirect('login-page')
+        
     categories = Category.objects.all()
     products = Product.objects.filter(category__name=category)
 
