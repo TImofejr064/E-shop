@@ -43,9 +43,9 @@ def get_products(request, category):
                 print('New item in basket!')    
                 messages.success(request, 'Товар добавлен!')
         except:
-            redirect("login-page")
+            messages.warning(request, 'Сначало зарегестрируйся или войди в аккаунт!')
         else:
-            redirect("login-page")
+            messages.warning(request, 'Сначало зарегестрируйся или войди в аккаунт!')
         
     categories = Category.objects.all()
     products = Product.objects.filter(category__name=category)
