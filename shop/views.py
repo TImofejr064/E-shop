@@ -44,8 +44,6 @@ def get_products(request, category):
                 messages.success(request, 'Товар добавлен!')
         except:
             messages.warning(request, 'Сначало зарегестрируйся или войди в аккаунт!')
-        else:
-            messages.warning(request, 'Сначало зарегестрируйся или войди в аккаунт!')
         
     categories = Category.objects.all()
     products = Product.objects.filter(category__name=category)
