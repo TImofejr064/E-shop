@@ -26,22 +26,25 @@ def get_products(request, category):
     print(request.method)
         
     if request.method == "POST":
-        if user.is_authenticated:
-            print('request is post')
+        try:
+            if user.is_authenticated:
+                print('request is post')
 
-            num = request.POST.get("number")
-            id = request.POST.get("product'sid")
-        
-            product = Product.objects.get(pk=id)
-            user = User.objects.get(username=request.user)
-            try:
-                a = BasketsItem.objects.get(user=request.user, product=product)
-                messages.warning(request, 'Товар уже добавлен!')
-            except:
-                bi = BasketsItem(user=request.user, product=product, num=num)
-                bi.save()
-                print('New item in basket!')    
-                messages.success(request, 'Товар добавлен!')
+                num = request.POST.get("number")
+                id = request.POST.get("product'sid")
+            
+                product = Product.objects.get(pk=id)
+                user = User.objects.get(username=request.user)
+                try:
+                    a = BasketsItem.objects.get(user=request.user, product=product)
+                    messages.warning(request, 'Товар уже добавлен!')
+                except:
+                    bi = BasketsItem(user=request.user, product=product, num=num)
+                    bi.save()
+                    print('New item in basket!')    
+                    messages.success(request, 'Товар добавлен!')
+        except:
+            redirect('login-page')
         else:
             redirect('login-page')
         
