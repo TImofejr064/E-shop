@@ -143,7 +143,7 @@ def basket(request):
     basket = Basket.objects.get(user=request.user)
     basket_items = BasketsItem.objects.filter(user=basket.user)
     total_price = 0
-
+# 
     for item in basket_items:
         total_price += item.product.price * item.num
 
