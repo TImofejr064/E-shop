@@ -146,7 +146,7 @@ def basket(request):
 # 
     for item in basket_items:
         total_price += item.product.price * item.num
-
+# 
     ctx = {
         'baskets_item' : basket_items,
         'total_price' : total_price,
