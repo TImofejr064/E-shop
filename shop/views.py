@@ -139,7 +139,7 @@ def basket(request):
         #     server.sendmail(sender_email, rec_email, html.encode('Windows 1251'))
         #     print("Email's been sent to ", rec_email)
             
-
+# 
     basket = Basket.objects.get(user=request.user)
     basket_items = BasketsItem.objects.filter(user=basket.user)
     total_price = 0
