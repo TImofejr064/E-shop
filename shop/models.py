@@ -43,7 +43,7 @@ class Product(models.Model):
     weight = models.IntegerField()
     price = models.IntegerField()
     category = models.ForeignKey("Category", on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='products_pics')
+    image = models.ImageField(upload_to='pics')
 
     def __str__(self):
         return f'{self.name}'    
