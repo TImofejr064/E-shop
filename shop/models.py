@@ -53,7 +53,7 @@ class Category(models.Model):
 
     def __str__(self):
         return f'{self.name}'    
-# asds
+# asdss
 class Status(models.Model):
     name = models.TextField()
 
